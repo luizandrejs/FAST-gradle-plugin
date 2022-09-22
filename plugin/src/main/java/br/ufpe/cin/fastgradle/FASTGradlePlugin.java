@@ -12,9 +12,13 @@ public class FASTGradlePlugin implements Plugin<Project> {
 
     private FastGradleExecutor fastGradleExecutor = new FastGradleExecutor();
 
+    @Override
     public void apply(Project project) {
+        FastPluginExtension extension = project.getExtensions()
+                .create("prioritize", FastPluginExtension.class);
+
         project.getTasks().register("prioritize", task -> {
-            task.doLast(s -> System.out.print(fastGradleExecutor.execute()));
+            task.doLast(s -> System.out.print(fastGradleExecutor.execute(extension)));
         });
     }
 }

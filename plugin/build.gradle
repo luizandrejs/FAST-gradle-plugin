@@ -21,7 +21,7 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        greeting {
+        prioritize {
             id = 'br.ufpe.cin.fastgradle'
             implementationClass = 'br.ufpe.cin.fastgradle.FASTGradlePlugin'
         }

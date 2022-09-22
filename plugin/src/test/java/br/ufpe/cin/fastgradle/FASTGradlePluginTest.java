@@ -12,7 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
  * A simple unit test for the 'br.ufpe.cin.fastgradle.greeting' plugin.
  */
 class FASTGradlePluginTest {
-    @Test void pluginRegistersATask() {
+
+    @Test
+    void pluginRegistersATask() {
         // Create a test project and apply the plugin
         Project project = ProjectBuilder.builder().build();
         project.getPlugins().apply("br.ufpe.cin.fastgradle");

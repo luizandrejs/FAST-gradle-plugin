@@ -14,11 +14,13 @@ public class CmdProvider {
         try {
 
             Process process = processBuilder.start();
+            processBuilder.redirectErrorStream(true);
+
             StringBuilder output = new StringBuilder();
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
 
-            while ((line = reader.readLine()) != null) {
+            while((line = reader.readLine()) != null) {
                 output.append(line + "\n");
             }
 

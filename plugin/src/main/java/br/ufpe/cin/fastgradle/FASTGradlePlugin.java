@@ -18,7 +18,12 @@ public class FASTGradlePlugin implements Plugin<Project> {
                 .create("prioritize", FastPluginExtension.class);
 
         project.getTasks().register("prioritize", task -> {
-            task.doLast(s -> System.out.print(fastGradleExecutor.execute(extension)));
+            task.doLast(s -> {
+                long start = System.currentTimeMillis();
+                System.out.print(fastGradleExecutor.execute(extension));
+                long end = System.currentTimeMillis();
+                System.out.println("Elapsed time in milliseconds: " + (end - start));
+            });
         });
     }
 }

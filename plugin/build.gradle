@@ -4,8 +4,8 @@ plugins {
 }
 
 compileJava {
-    sourceCompatibility = 11
-    targetCompatibility = 11
+    sourceCompatibility = 8
+    targetCompatibility = 8
 }
 
 group = 'br.ufpe.cin.fastgradle'
@@ -17,6 +17,7 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'junit:junit:4.13.1'
 }
 
 gradlePlugin {

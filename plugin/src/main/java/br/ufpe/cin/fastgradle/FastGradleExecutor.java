@@ -1,7 +1,6 @@
 package br.ufpe.cin.fastgradle;
 
 import org.gradle.internal.impldep.org.eclipse.jgit.api.Git;
-import org.gradle.internal.impldep.org.eclipse.jgit.api.errors.GitAPIException;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -15,7 +14,7 @@ public class FastGradleExecutor {
     public String execute(FastPluginExtension extension) {
         if (checkValidAlgorithm(extension.getAlgorithm())) {
             cloneRepo();
-            return cmdProvider.executeCommand("python3 py/prioritize.py " + extension.getProjectPath() + " " + extension.getAlgorithm());
+            return cmdProvider.executeCommand("python3 /Users/luizandre/.m2/repository/br/ufpe/cin/fastgradle/FAST/py/prioritize.py " + extension.getProjectPath() + " " + extension.getAlgorithm());
         } else {
             return "Invalid Algorithm.";
         }
@@ -37,7 +36,6 @@ public class FastGradleExecutor {
     }
 
     public void cloneRepo()  {
-
         String repoUrl = "https://github.com/FAST-tool/maven-FAST";
 
         String cloneDirectoryPath = getPluginDir() + "/FAST";
@@ -59,5 +57,4 @@ public class FastGradleExecutor {
             }
         }
     }
-
 }
